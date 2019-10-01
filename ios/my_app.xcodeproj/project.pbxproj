@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* my_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* my_appTests.m */; };
 		50B74B57CA218C8D1B2636A0 /* libPods-my_app-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C64ACBF7C9E4F5456CF23DFD /* libPods-my_app-tvOSTests.a */; };
 		5BFE4E6582343BE8C4DDA9C9 /* libPods-my_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CB6EE95EC377EC08402F25 /* libPods-my_appTests.a */; };
+		8CB8F5FA2342DCE500443F4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CB8F5F92342DCE500443F4A /* GoogleService-Info.plist */; };
 		95E92D1DCB8B9BAE120FE939 /* libPods-my_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2637DE6AEBA23F09608172 /* libPods-my_app.a */; };
 		B0799FE703583554C03F8F0F /* libPods-my_app-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F02EDC453C2505942120C81 /* libPods-my_app-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		6B59442791E62B6EBD066F97 /* Pods-my_app-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my_app-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-my_app-tvOSTests/Pods-my_app-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		721BFDB075152CAD8196D0DE /* Pods-my_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my_appTests.debug.xcconfig"; path = "Target Support Files/Pods-my_appTests/Pods-my_appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		807779E4019139C22E9A4B0B /* Pods-my_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my_app.debug.xcconfig"; path = "Target Support Files/Pods-my_app/Pods-my_app.debug.xcconfig"; sourceTree = "<group>"; };
+		8CB8F5F92342DCE500443F4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F001BCF62FFC2CFFD250AFD /* Pods-my_app-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-my_app-tvOS.release.xcconfig"; path = "Target Support Files/Pods-my_app-tvOS/Pods-my_app-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		AB2637DE6AEBA23F09608172 /* libPods-my_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-my_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C64ACBF7C9E4F5456CF23DFD /* libPods-my_app-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-my_app-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* my_app */ = {
 			isa = PBXGroup;
 			children = (
+				8CB8F5F92342DCE500443F4A /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -148,7 +151,6 @@
 				721BFDB075152CAD8196D0DE /* Pods-my_appTests.debug.xcconfig */,
 				58C78FC97D4A9225506517C6 /* Pods-my_appTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				8CB8F5FA2342DCE500443F4A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,9 +595,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -611,9 +615,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

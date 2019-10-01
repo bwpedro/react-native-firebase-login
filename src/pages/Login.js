@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
 	StyleSheet,
   View,
@@ -8,18 +8,37 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-// import Logo from '../components/Logo';
+import firebase from 'react-native-firebase';
 
-const Login: () => React$Node = () => {
-	return (
-		<>
-			<View style={styles.container}>
+export default class Login extends Component {
+  
+  state = {
+    email : '',
+    senha : '',
+    logado : false,
+  }
+  
+  login = async () => {
+    const { email, senha } = this.state;
+
+    try {
+      const user = await firebase.auth().signInWithEmailAndPassword(email, senha);
+      console.log(user);
+      this.setState({logado : true})
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  render(){
+    return (
+      <View style={styles.container}>
         <View style={styles.logo}>
           <Image 
             style={styles.image} 
             source={require('../img/react-native.png')}
           />
-          <Text style={styles.welcomeText}>Welcome to my React Native app.</Text>
+          {this.state.logado ? <Text style={styles.buttonCadastrar}>Bem-vindo, {this.state.email}!</Text> : <Text style={styles.buttonCadastrar}>Bem-vindo! Logue abaixo.</Text>}
         </View>
 
         <View style={styles.inputs}>
@@ -27,25 +46,29 @@ const Login: () => React$Node = () => {
             style={styles.textInput} 
             placeholder="Email" 
             placeholderTextColor='#ffffff'
+            value={this.state.email}
+            onChangeText={(email) => this.setState({email})}
           />
           <TextInput 
             style={styles.textInput} 
             placeholder="Senha" 
             placeholderTextColor='#ffffff'
             secureTextEntry={true}
+            value={this.state.senha}
+            onChangeText={(senha) => this.setState({senha})}
           />
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={this.login}>
             <Text style={styles.buttonEntrar}>Entrar</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Text style={styles.buttonCadastrar}>Não tem um cadastro? Clique aqui</Text>
           </TouchableOpacity>
         </View>
-			</View>
-		</>
-	);
-};
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -83,7 +106,7 @@ const styles = StyleSheet.create({
   },
   buttonCadastrar: {
     fontSize: 13,
-    color: '#ffffff',
+    color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
   },
   button: {
@@ -100,5 +123,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 });
-
-export default Login;
